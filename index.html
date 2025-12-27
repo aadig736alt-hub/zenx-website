@@ -2,93 +2,95 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>ZenX – Performance, Your Way</title>
+  <title>ZENX – Performance, Your Way</title>
 
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
       background: white;
       color: #111;
     }
 
     .hero {
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      animation: fadeUp 1.2s ease;
+      padding: 40px;
     }
 
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .logo {
-      font-size: 80px;
-      font-weight: bold;
-      letter-spacing: 6px;
+    .logo img {
+      max-width: 400px;
+      width: 90%;
+      margin-bottom: 30px;
     }
 
     .motto {
       font-size: 20px;
       color: #555;
-      margin-top: 10px;
+      margin-bottom: 40px;
     }
 
     .buttons {
-      margin-top: 40px;
       display: flex;
       gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     .btn {
-      padding: 15px 30px;
+      padding: 15px 32px;
       border: 2px solid #111;
       background: white;
       font-size: 16px;
       cursor: pointer;
-      transition: all 0.3s ease;
+      text-decoration: none;
+      color: #111;
+      transition: all 0.2s ease;
     }
 
     .btn:hover {
       background: #111;
       color: white;
-      transform: translateY(-3px);
+      transform: translateY(-2px);
     }
 
     .custom {
-      margin-top: 30px;
+      margin-top: 40px;
       font-size: 18px;
       color: #333;
+      max-width: 600px;
     }
   </style>
 </head>
 
 <body>
+
   <div class="hero">
-    <div class="logo">ZENX</div>
+
+    <div class="logo">
+      <img src="zenx-logo.png" alt="ZENX Logo">
+    </div>
+
     <div class="motto">Performance, Your Way.</div>
 
     <div class="buttons">
-      <button class="btn">Automotive</button>
-      <button class="btn">Marine</button>
-      <button class="btn">Aerospace</button>
+      <a class="btn" href="project-zico-automotive.html">Automotive</a>
+      <a class="btn" href="project-zico-bikes.html">Bikes</a>
+      <a class="btn" href="project-zico-marine.html">Marine</a>
+      <a class="btn" href="project-zico-aerospace.html">Aerospace</a>
     </div>
 
     <div class="custom">
-      Fully customizable mobility across land, sea, and air.
+      Fully customizable mobility platforms across land, sea, and air —
+      engineered under <strong>Project Zico</strong>.
     </div>
+
   </div>
+
 </body>
 </html>
 
