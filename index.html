@@ -1,95 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>ZENX – Performance, Your Way</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZENX – Performance, Your Way</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: white;
-      color: #111;
-    }
+<style>
+:root {
+  --bg: #ffffff;
+  --text: #111;
+  --muted: #666;
+  --accent: #0a84ff;
+}
 
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 40px;
-    }
+[data-theme="dark"] {
+  --bg: #0b0b0b;
+  --text: #ffffff;
+  --muted: #aaa;
+}
 
-    .logo img {
-      max-width: 400px;
-      width: 90%;
-      margin-bottom: 30px;
-    }
+html {
+  scroll-behavior: smooth; /* Apple-style scrolling */
+}
 
-    .motto {
-      font-size: 20px;
-      color: #555;
-      margin-bottom: 40px;
-    }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.4s, color 0.4s;
+}
 
-    .buttons {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+section {
+  min-height: 100vh;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 
-    .btn {
-      padding: 15px 32px;
-      border: 2px solid #111;
-      background: white;
-      font-size: 16px;
-      cursor: pointer;
-      text-decoration: none;
-      color: #111;
-      transition: all 0.2s ease;
-    }
+/* HERO */
+.logo img {
+  max-width: 320px;
+  width: 80%;
+  animation: fadeUp 1.2s ease forwards;
+}
 
-    .btn:hover {
-      background: #111;
-      color: white;
-      transform: translateY(-2px);
-    }
+.motto {
+  font-size: 20px;
+  color: var(--muted);
+  margin: 20px 0 40px;
+  animation: fadeUp 1.5s ease forwards;
+}
 
-    .custom {
-      margin-top: 40px;
-      font-size: 18px;
-      color: #333;
-      max-width: 600px;
-    }
-  </style>
+/* BUTTONS */
+.buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn {
+  padding: 14px 28px;
+  border: 2px solid var(--text);
+  background: transparent;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 15px;
+  transition: all 0.25s ease;
+}
+
+.btn:hover {
+  background: var(--text);
+  color: var(--bg);
+  transform: translateY(-3px);
+}
+
+/* PROJECT ZICO */
+.reveal {
+  max-width: 700px;
+  font-size: 18px;
+  color: var(--muted);
+}
+
+/* DARK MODE TOGGLE */
+.toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* MOBILE FIRST */
+@media (min-width: 768px) {
+  .motto { font-size: 22px; }
+  .reveal { font-size: 20px; }
+}
+</style>
 </head>
 
-<body>
+<body data-theme="light">
 
-  <div class="hero">
+<div class="toggle" onclick="toggleTheme()">🌙 Dark Mode</div>
 
-    <div class="logo">
-      <img src="zenx-logo.jpg" alt="ZENX Logo">
-    </div>
-
-    <div class="motto">Performance, Your Way.</div>
-
-    <div class="buttons">
-      <a class="btn" href="project-zico-automotive.html">Automotive</a>
-      <a class="btn" href="project-zico-bikes.html">Bikes</a>
-      <a class="btn" href="project-zico-marine.html">Marine</a>
-      <a class="btn" href="project-zico-aerospace.html">Aerospace</a>
-    </div>
-
-    <div class="custom">
-      Fully customizable mobility platforms across land, sea, and air —
-      engineered under <strong>Project Zico</strong>.
-    </div>
-
+<!-- HERO -->
+<section id="home">
+  <div class="logo">
+    <img src="zenx-logo.png" alt="ZENX Logo">
   </div>
+  <div class="motto">Performance, Your Way.</div>
+
+  <div class="buttons">
+    <a href="#zico" class="btn">Automotive</a>
+    <a href="#zico" class="btn">Bikes</a>
+    <a href="#zico" class="btn">Marine</a>
+    <a href="#zico" class="btn">Aerospace</a>
+  </div>
+</section>
+
+<!-- PROJECT ZICO -->
+<section id="zico">
+  <h1>Project Zico</h1>
+  <p class="reveal">
+    Project Zico is ZENX’s unified performance platform — a modular,
+    customizable mobility architecture spanning land, sea, and air.
+    Designed for precision, scalability, and future propulsion systems.
+  </p>
+
+  <div class="buttons" style="margin-top:40px;">
+    <a href="#home" class="btn">Back to Top</a>
+  </div>
+</section>
+
+<script>
+function toggleTheme() {
+  const body = document.body;
+  body.dataset.theme =
+    body.dataset.theme === "dark" ? "light" : "dark";
+}
+</script>
 
 </body>
 </html>
